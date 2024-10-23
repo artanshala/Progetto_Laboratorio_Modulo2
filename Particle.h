@@ -5,7 +5,6 @@ class Particle {
  private:
   static const int fMaxNumParticleType_;
   static std::vector<ParticleType*> fParticleType_;
-  // static  ParticleType* fParticleType_[fMaxNumParticleType_];
   static int fNParticleType_;
   static int FindParticle(char* fName);
   int fIndex_;
