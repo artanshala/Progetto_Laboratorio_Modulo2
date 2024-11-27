@@ -1,6 +1,10 @@
 #include <vector>
-
+#include<cmath>
 #include "ResonanceType.h"
+
+#ifndef PARTICLE_H
+#define PARTICLE_H
+
 class Particle {
  private:
   static const int fMaxNumParticleType_;
@@ -9,6 +13,7 @@ class Particle {
   static int FindParticle(char* fName);
   int fIndex_;
   double fPx_{0}, fPy_{0}, fPz_{0};
+  void Boost(double bx, double by, double bz);
 
  public:
   Particle(char* fName, double fPx, double fPy, double fPz);
@@ -21,17 +26,17 @@ class Particle {
 
   void SetIndex(char* name);
 
-  double const GetPx();
+  double GetPx() const;
 
-  double const GetPy();
+  double GetPy() const;
 
-  double const GetPz();
+  double GetPz() const;
 
-  double const GetMass();
+  double GetMass() const;
 
-  double const GetEnergy();
+  double GetEnergy() const;
 
-  double const GetInvMass(Particle &p);
+  double GetInvMass(Particle &p) const;
 
   void SetP (double fPx, double fPy, double fPz);
 
@@ -39,7 +44,9 @@ class Particle {
 
   void PrintParticle();
 
-
-
+  int Decay2body(Particle &dau1,Particle &dau2) const;
 
 };
+
+
+#endif
